@@ -1,0 +1,17 @@
+{
+  "name": "molecule.js",
+  "version": "1.0.0",
+  "description": "User Controller Project for atom.js",
+  "author": "Mattias Runge <mattias@runge.se>, Björn Ramberg <bjorne@gah.se>",
+  "repository": { "type": "git", "url": "git://github.com/bjorne/molecule.js.git" },
+  "dependencies": {
+    "atom.js": "~2.0.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.1.0",
+    "should": "~0.6.3",
+    "jshint": "~0.7.1"
+  },
+  "engines": { "node": ">= 0.6.0" },
+  "license": "GPLv2"
+}
