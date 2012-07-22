@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+var fs = require('fs'),
+    path = require('path');
+
+var atom = require('atom.js');
+
+var config;
+try {
+  config = JSON.parse(fs.readFileSync(path.join(__dirname, 'config/atom.json')));
+} catch (ex) {
+  console.log('atom.json is invalid or could not be found');
+  console.log('Error was:', ex.toString());
+  process.exit(1);
+}
+
+var server = new atom.Atom(config);
+
+server.on('error', function(error) {
+  console.log('An error occured in Atom: ' + error);
+});
+
+var libPath = path.join(__dirname, 'lib');
+fs.readdirSync(libPath).forEach(function(name) {
+  if (name.match(/\.js$/)) {
+    require(path.join(libPath, name))(server.unitSelector);    
+  }
+});

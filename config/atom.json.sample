@@ -1,0 +1,21 @@
+{
+  protocolFile: './protocol.json',
+  unitConfigFile: './units.json',
+  monitor: {
+    port: 1201
+  },
+  command: {
+    tcpPort: 1202
+  },
+  udp: [
+    {
+      address: '192.168.10.60',
+      port: 1100
+    }
+  ],
+  legacy: [
+    {
+      port: 1200
+    }
+  ]
+}
