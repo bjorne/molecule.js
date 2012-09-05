@@ -20,9 +20,11 @@ server.on('error', function(error) {
   console.log('An error occured in Atom: ' + error);
 });
 
-var libPath = path.join(__dirname, '../lib');
+var fn = require(path.join(__dirname, '../lib/fn'));
+
+var libPath = path.join(__dirname, '../lib/controllers');
 fs.readdirSync(libPath).forEach(function(name) {
   if (name.match(/\.js$/)) {
-    require(path.join(libPath, name))(server.unitSelector);    
+    require(path.join(libPath, name))(server.unitSelector, fn);    
   }
 });
