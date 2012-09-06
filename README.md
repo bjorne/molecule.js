@@ -19,14 +19,18 @@ branch.
 By creating your own branch, you can freely commit and push changes
 and easily share your code with other users.
 
-_(TODO)_ Copy `config/atom.json.sample` to `config/atom.json` and make
-the changes necessary to suit your environment.
+Copy
+
+* `config/atom.json.sample` to `config/atom.json`
+* `config/molecule.json.sample` to `config/molecule.json`
+
+and make the changes necessary to suit your environment.
 
 Run `npm install` to install the necessary packages.
 
 ### Scripting basics
 
-A molecule script resides under the `lib/` directory and exports a
+A molecule script resides under the `lib/controllers` directory and exports a
 function which will automatically be invoked by molecule upon startup,
 like so:
 

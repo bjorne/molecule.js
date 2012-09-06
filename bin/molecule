@@ -5,14 +5,18 @@ var fs = require('fs'),
 
 var atom = require('atom.js');
 
-var config;
-try {
-  config = JSON.parse(fs.readFileSync(path.join(__dirname, '../config/atom.json')));
-} catch (ex) {
-  console.log('atom.json is invalid or could not be found');
-  console.log('Error was:', ex.toString());
-  process.exit(1);
-}
+var readConfig = function(relPath, errorMsg) {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(__dirname, relPath)));
+  } catch (ex) {
+    console.log(path.basename(relPath) + ' is invalid or could not be found');
+    console.log('Error was:', ex.toString());
+    process.exit(1);
+  }  
+};
+
+var config = readConfig('../config/atom.json');
+var moleculeConfig = readConfig('../config/molecule.json');
 
 var server = new atom.Atom(config);
 
@@ -23,8 +27,8 @@ server.on('error', function(error) {
 var fn = require(path.join(__dirname, '../lib/fn'));
 
 var libPath = path.join(__dirname, '../lib/controllers');
-fs.readdirSync(libPath).forEach(function(name) {
-  if (name.match(/\.js$/)) {
-    require(path.join(libPath, name))(server.unitSelector, fn);    
-  }
+
+moleculeConfig.controllers.forEach(function(name) {
+  name.replace(/\.js$/, '');
+  require(path.join(libPath, name))(server.unitSelector, fn);
 });
