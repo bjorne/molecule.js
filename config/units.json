@@ -1,0 +1,40 @@
+{
+  "units": [
+    {
+      "type": "BusVoltage",
+      "moduleId": 2
+    },
+    {
+      "type": "RfTransceive",
+      "moduleId": 1
+    },
+    {
+      "type": "Nexa1Remote",
+      "rfTransceiveSelector": {
+        "type": "RfTransceive"
+      },
+      "offId": 2105
+    },
+    {
+      "type": "Nexa1Switch",
+      "rfTransceiveSelector": {
+        "type": "RfTransceive"
+      },
+      "offId": 2137
+    },
+    {
+      "type": "Nexa2Remote",
+      "rfTransceiveSelector": {
+        "type": "RfTransceive"
+      },
+      "offId": 2128979239
+    },
+    {
+      "type": "Nexa2Dimmer",
+      "rfTransceiveSelector": {
+        "type": "RfTransceive"
+      },
+      "offId": 4276462887
+    }
+  ]
+}
