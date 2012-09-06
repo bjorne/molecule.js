@@ -20,7 +20,16 @@
       "rfTransceiveSelector": {
         "type": "RfTransceive"
       },
-      "offId": 2137
+      "offId": 2137,
+      "window": 1
+    },
+    {
+      "type": "Nexa1Switch",
+      "rfTransceiveSelector": {
+        "type": "RfTransceive"
+      },
+      "offId": 2201,
+      "window": 2
     },
     {
       "type": "Nexa2Remote",
